@@ -1,22 +1,18 @@
-# def fizz_buzz(n)
-# 	if n % 15 == 0
-# 		"Fizz Buzz"
-# 	elsif n % 3 ==0
-# 		"Fizz"
-# 	elsif n% 5 == 0
-# 		"Buzz"
-# 	else
-# 		n.to_s
-# 	end
-# end
+def fizz_buzz(n)
+	if n % 15 == 0
+		"Fizz Buzz"
+	elsif n % 3 ==0
+		"Fizz"
+	elsif n% 5 == 0
+		"Buzz"
+	else
+		n.to_s
+	end
+end
 
-# puts fizz_buzz(1)
-# puts fizz_buzz(2)
-# puts fizz_buzz(3)
-# puts fizz_buzz(4)
-# puts fizz_buzz(5)
-# puts fizz_buzz(6)
-# puts fizz_buzz(15)
+
+
+
 def greeting(country = "japan")
 	if country == "japan"
 		"こんにちは"
@@ -27,6 +23,7 @@ end
  puts greeting
  puts greeting("us")
 
+# -------------------------
  def default_args(a,b,c = 0,d = 0)
  	"a=#{a}, b=#{b}, c=#{c}, d=#{d}"
  end
@@ -42,3 +39,26 @@ end
  end
 
 puts foo
+
+# ------------------------
+
+def multiple_of_three?(n)
+	n % 3 == 0
+end
+
+puts multiple_of_three?(4)
+puts multiple_of_three?(6)
+
+# ======================
+
+a = "ruby"
+
+puts a.upcase!
+puts a
+
+# ----------------
+puts "hello".length
+puts "hello".size
+
+
+
