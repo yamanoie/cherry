@@ -172,3 +172,184 @@ p a
 a=[]
 14.downto(10) {|n| a<<n}
 p a
+
+
+# step
+
+a=[]
+1.step(10,2) {|n| a <<n}
+p a
+
+a= []
+10.step(1,-2) {|n| a << n}
+p a
+
+# wihile until
+
+a= []
+while a.size < 5
+	a << 1
+end
+
+p a
+
+
+a=[]
+
+a << 2 while a.size <10
+
+p a
+
+a= []
+while false
+	a << 1
+end
+
+p a
+
+begin
+	a << 1
+end while  false
+p a
+
+
+a= [10,20,30,40,50]
+until a.size <= 3
+	a.delete_at(-1)
+end
+
+p a
+
+
+# for
+
+numbers = [1,2,3,4]
+sum = 0
+for n in numbers
+	sum += n
+end
+
+p sum
+
+# loop
+
+numbers = [1,2,3,4,5,]
+loop do
+	n = numbers.sample
+	puts n
+	break if n == 5
+end
+
+
+# break
+
+numbers = [1,2,3,4,5].shuffle
+numbers.each do |n|
+	puts n
+	break if n == 5
+end
+
+
+numbers = [1,2,3,4,5,6].shuffle
+i = 0
+while i < numbers.size
+	n = numbers[i]
+	puts n
+	break if n == 5
+	i += 1
+end
+
+ret = 
+while true
+	break 123
+end
+p ret
+
+
+fruits = ["apple","melon","orange"]
+numbers = [1,2,3,4]
+fruits.each do |fruit|
+	numbers.shuffle.each do |n|
+		puts "#{fruit},#{n}"
+		break if n == 2
+	end
+end
+
+
+# thorow catch
+
+fruits = ["apple","melon","orange"]
+numbers = [1,2,3]
+catch :done do
+	fruits.shuffle.each do |fruit|
+		numbers.shuffle.each do |n|
+			puts "#{fruit}, #{n}"
+			if fruit == "orange" && n == 3
+				throw :done
+			end
+		end
+	end
+end
+
+ret =
+catch :done do
+	throw :done,123
+end
+
+p ret
+
+
+# return
+
+def calc_with_break
+	numbers = [1,2,3,4,5,6]
+	target = nil
+	numbers.shuffle.each do |n|
+		target = n
+		break if n.even?
+	end
+	target * 10
+end
+p calc_with_break
+
+
+# next
+
+numbers = [1,2,3,4,5]
+numbers.each do |n|
+	next if n.even?
+	puts n
+end
+
+numbers = [1,2,3,4,5]
+i = 0
+while i < numbers.size
+	n = numbers[i]
+	i += 1
+	next if n.even?
+	puts n
+end
+
+fruits = ["apple","melon","orange"]
+numbers = [1,2,3,4]
+fruits. each do |fruit|
+	numbers.each do |n|
+		next if n.even?
+		puts "#{fruit},#{n}"
+	end
+end
+
+# redo
+
+foods = ["ピーマン","トマト","セロリ"]
+count = 0
+foods.each do |food|
+	print "#{food}は好きですか？ => "
+	answer = ["いいえ"]
+	puts answer
+
+	count += 1
+
+	redo if answer == "はい" && count <2
+	count = 0
+end
