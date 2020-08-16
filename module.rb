@@ -194,3 +194,134 @@ s = "abc"
 s.log("Hello")
 s.extend(Loggable)
 s.log("Hello")
+
+
+# ネームスペース
+
+module Baseball
+	class second
+		def initialize(player,uniform_number)
+			@player = player
+			@uniform_number = uniform_number
+		end
+	end
+end
+
+module Clock
+	class second
+		def initialize(digits)
+			@digits = digits
+		end
+	end
+end
+
+Baseball::Second.new("Alice", 13)
+Clock::Second.new(13)
+
+
+module Loggable
+	def self.log(text)
+		puts "[LOG] #{text}"
+	end
+end
+
+Loggable.log("Hello")
+
+module Loggable
+	class << self
+		def log(text)
+			puts "[LOG] #{texct}"
+		end
+	end
+end
+
+Loggable.log("Hello")
+
+
+module Loggable
+	def log(text)
+		puts "[LOG] #{text}"
+	end
+	module_function :log
+end
+Loggable.log("Hello")
+
+class Product
+	include Loggable
+
+	def title
+		log "title is called."
+		"A great movie"
+	end
+end
+
+product = Product.new
+product.title
+
+ module AwesomeApi
+ 	@base_url =''
+ 	@debug_url = false
+
+ 	class << self
+ 		def base_url=(value)
+ 			@base_url = value
+ 		end
+
+ 		def base_url
+ 			@base_url
+ 		end
+
+ 		def debug_mode
+ 			@debug_mode
+ 		end
+
+ 	end
+ end
+
+ AwesomeApi.base_url = "http//example.com"
+ AwesomeApi.debug_mode = true
+
+ AwesomeApi.base_url
+ AwesomeApi.debug_mode
+
+
+ require "singleton"d
+
+ class Configuration
+ 	include Singleton
+
+ 	attr_accessor :base_url, :debug_mode
+
+ 	def initialize
+ 		@base_url = ""
+ 		@debug_mode = false
+ 	end
+ end
+
+ config = Configuration.new
+
+ config  =Configuration.instance
+ config.base_url = "http//example.com"
+ config.debug_mode = true
+
+ other = Configuration.instance
+ other.base_url
+ other.debug_mode
+
+
+
+ module AwesomeApi
+ 	@base_url =""
+ 	@debug_mode = false
+
+ 	class << self
+ 		attr_accessor :base_url, :debug_mode
+ 	end
+ end
+
+ module AwesomeApi
+ 	class Engine
+ 	end
+ end
+
+
