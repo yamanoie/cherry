@@ -178,4 +178,9 @@ question_proc = Proc.new{ |text| "#{text}?"}
 greeting(shuffle_proc,repeat_proc,question_proc)
 
 
+add_proc = Proc { |a,b| a + b }
+add_proc.call(10,20)
+add_proc.yield(10,20)
+add_proc.(10,20)
+add_proc[10,20]
 
